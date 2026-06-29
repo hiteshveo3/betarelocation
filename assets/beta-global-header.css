@@ -258,7 +258,7 @@ body::before {
     radial-gradient(circle at 48% 74%, rgba(139, 92, 246, 0.11), transparent 34%),
     linear-gradient(135deg, rgba(224,247,255,.32), transparent 62%);
   filter: blur(10px);
-  opacity: .95;
+  opacity: .46;
   animation: beta-liquid-page-bg 16s ease-in-out infinite;
 }
 
@@ -276,7 +276,7 @@ body::after {
     radial-gradient(circle at 68% 62%, rgba(191, 219, 254, 0.62), transparent 38%),
     radial-gradient(circle at 42% 78%, rgba(255, 237, 159, 0.18), transparent 32%);
   filter: blur(14px);
-  opacity: .84;
+  opacity: .42;
   animation: beta-liquid-page-bg 20s ease-in-out infinite reverse;
 }
 
@@ -291,6 +291,64 @@ footer,
 .gh-drawer {
   position: relative;
   z-index: 1;
+}
+
+main .section,
+main .hero,
+main .reviews-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+main .section > *,
+main .hero > *,
+main .reviews-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+main .section::before,
+main .hero::before,
+main .reviews-section::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -34% auto;
+  width: min(48vw, 620px);
+  height: min(48vw, 620px);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 26%, rgba(11, 165, 236, .20), transparent 34%),
+    radial-gradient(circle at 72% 52%, rgba(186, 230, 253, .48), transparent 40%),
+    radial-gradient(circle at 50% 82%, rgba(139, 92, 246, .10), transparent 36%);
+  filter: blur(8px);
+  opacity: .58;
+  transform: translateZ(0);
+  animation: beta-liquid-page-bg 18s ease-in-out infinite;
+}
+
+main .section:nth-of-type(even)::before {
+  inset: -30% auto auto -12%;
+  width: min(42vw, 560px);
+  height: min(42vw, 560px);
+  background:
+    radial-gradient(circle at 36% 32%, rgba(34, 211, 238, .18), transparent 34%),
+    radial-gradient(circle at 72% 62%, rgba(219, 234, 254, .60), transparent 40%),
+    radial-gradient(circle at 42% 76%, rgba(253, 224, 71, .10), transparent 34%);
+  animation-duration: 22s;
+  animation-direction: reverse;
+}
+
+main .section-white::before {
+  opacity: .44;
+}
+
+main .section-soft::before,
+main .section-alt::before,
+main .section-cyan::before,
+main .section-mist::before {
+  opacity: .68;
 }
 
 .gh-container {
