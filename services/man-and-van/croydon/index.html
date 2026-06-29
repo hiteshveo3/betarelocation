@@ -130,11 +130,16 @@
       .grid-2,.grid-3,.grid-4,.link-grid,.footer-grid,.mini-row{grid-template-columns:1fr}
       .media-frame{max-width:100%;border-radius:14px}
       .media-frame img{border-radius:14px;transform:scale(1.06)}
-      .price-table{min-width:640px}
-      .price-table th,.price-table td{padding:12px 13px;font-size:14px}
+      .price-table-wrap{overflow:visible;border:0;background:transparent}
+      .price-table{display:block;min-width:0;width:100%;border-collapse:separate}
+      .price-table thead{display:none}
+      .price-table tbody{display:grid;gap:10px}
+      .price-table tr{display:grid;gap:6px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}
+      .price-table td{display:block;padding:0;border:0;font-size:14px}
+      .price-table td:nth-child(1){color:var(--ink)}
+      .price-table td:nth-child(2){color:var(--purple);font-size:18px}
       .cta-actions{display:grid;width:100%;gap:10px}
       .button{width:100%;min-height:48px}
-      .faq-item summary{padding:15px 46px;font-size:16px}
       .mobile-bottom-nav{display:grid}
     }
     @media(max-width:430px){
@@ -147,7 +152,6 @@
       .section-head h2,.section h2,.cta-title{font-size:26px}
       .card{padding:16px}
       .link-card{padding-right:34px}
-      .price-table{min-width:590px}
       .mobile-bottom-nav a{font-size:12px}
     }
   </style>
@@ -359,16 +363,19 @@
 
     <section class="section section-soft" id="faqs">
       <div class="container">
-        <div class="section-head"><div><span class="eyebrow">FAQs</span><h2>Frequently asked questions</h2></div></div>
-        <div class="beta-faq-list">
-          <details class="beta-faq-item" open><summary>How much does a man and van cost in Croydon?</summary><p>Rates start from £45 per hour for one person and a transit van, or from £65 per hour for two people with a larger van. The total cost depends on the job: items, floor access, parking and duration.</p></details>
-          <details class="beta-faq-item"><summary>Do you offer same-day man and van in Croydon?</summary><p>Same-day availability depends on the schedule. Message us on WhatsApp and we will confirm whether we can accommodate the date you need.</p></details>
-          <details class="beta-faq-item"><summary>Which parts of Croydon do you cover?</summary><p>We cover Croydon town centre, South Croydon, Thornton Heath, Addiscombe, Selsdon, Norbury, Purley, Coulsdon and Sanderstead across CR0, CR2, CR4, CR5, CR7 and CR8.</p></details>
-          <details class="beta-faq-item"><summary>Are my belongings insured during the move?</summary><p>We carry insurance relevant to our services. Full details are available on our insurance page or can be confirmed before you book.</p></details>
-          <details class="beta-faq-item"><summary>What size van do I need for my Croydon move?</summary><p>A transit van suits smaller loads, typically a studio, room move or single item. A larger van is better for bigger flat and house moves. Share your item list and access details so we can advise.</p></details>
-          <details class="beta-faq-item"><summary>Can you move a piano in Croydon?</summary><p>Yes, subject to job details. Tell us the piano type, which floor it is on, and the access at both addresses so we can confirm whether the job is suitable for our team.</p></details>
-          <details class="beta-faq-item"><summary>Do you work weekends?</summary><p>Weekend slots may be available. Contact us ahead of time if you need a Saturday or Sunday because weekend availability can fill faster than weekday slots.</p></details>
-          <details class="beta-faq-item"><summary>What should I send for a Croydon quote?</summary><p>Send the move date, collection and delivery postcodes, item photos, floor levels, lift access, stairs and parking notes.</p></details>
+        <div class="section-head faq-section-head">
+          <span class="eyebrow"><i class="iconsax" icon-name="message-question"></i> FAQ</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item is-open"><button class="faq-trigger" type="button" aria-expanded="true"><h3>How much does a man and van cost in Croydon?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>Rates start from £45 per hour for one person and a transit van, or from £65 per hour for two people with a larger van. The total cost depends on the job: items, floor access, parking and duration.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>Do you offer same-day man and van in Croydon?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>Same-day availability depends on the schedule. Message us on WhatsApp and we will confirm whether we can accommodate the date you need.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>Which parts of Croydon do you cover?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>We cover Croydon town centre, South Croydon, Thornton Heath, Addiscombe, Selsdon, Norbury, Purley, Coulsdon and Sanderstead across CR0, CR2, CR4, CR5, CR7 and CR8.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>Are my belongings insured during the move?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>We carry insurance relevant to our services. Full details are available on our insurance page or can be confirmed before you book.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>What size van do I need for my Croydon move?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>A transit van suits smaller loads, typically a studio, room move or single item. A larger van is better for bigger flat and house moves. Share your item list and access details so we can advise.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>Can you move a piano in Croydon?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>Yes, subject to job details. Tell us the piano type, which floor it is on, and the access at both addresses so we can confirm whether the job is suitable for our team.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>Do you work weekends?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>Weekend slots may be available. Contact us ahead of time if you need a Saturday or Sunday because weekend availability can fill faster than weekday slots.</p></div></article>
+          <article class="faq-item"><button class="faq-trigger" type="button" aria-expanded="false"><h3>What should I send for a Croydon quote?</h3><i class="iconsax" icon-name="arrow-down"></i></button><div class="faq-panel"><p>Send the move date, collection and delivery postcodes, item photos, floor levels, lift access, stairs and parking notes.</p></div></article>
         </div>
       </div>
     </section>
@@ -381,14 +388,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><a class="brand" href="/"><img src="/assets/beta-relocation-logo.webp" alt="Beta Relocation" style="width:178px;height:auto"></a><p>BETA RELOCATION LIMITED, company number 17304493. Registered office: 20 Chesterton Road, London E13 8BA, England.</p></div>
-      <div><div class="footer-title">Services</div><a href="/services/man-and-van/">Man and Van</a><a href="/services/house-removals/">House Removals</a><a href="/services/office-removals/">Office Removals</a><a href="/services/packing/">Packing</a><a href="/services/student-removals/">Student Removals</a><a href="/services/same-day-moves/">Same-Day Moves</a></div>
-      <div><div class="footer-title">Support</div><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/insurance/">Insurance</a><a href="/claims-and-complaints/">Claims</a></div>
-      <div><div class="footer-title">Legal</div><a href="/terms/">Terms</a><a href="/privacy-policy/">Privacy</a><a href="/cancellation-policy/">Cancellation</a></div>
-    </div>
-  </footer>
+  <div data-beta-global-footer></div>
   <div data-beta-global-bottom-nav></div>
   <script src="/assets/beta-global-header.js"></script>
 </body>

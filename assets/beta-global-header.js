@@ -229,6 +229,80 @@
     `;
   }
 
+  function footerMarkup() {
+    return `
+      <footer class="site-footer">
+        <div class="footer-inner gh-container">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <a class="gh-brand" href="/" aria-label="Beta Relocation homepage">
+                <img class="gh-favicon" src="/assets/favicon.png" alt="">
+                <span class="gh-brand-text"><img class="gh-brand-logo" src="/assets/beta-relocation-logo.webp" alt="Beta Relocation"></span>
+              </a>
+              <p>Man and van, house removals, office moves, packing, and same-day London moving support with clear pricing and fast booking.</p>
+              <div class="footer-trust">
+                <span class="trust-pill"><i class="${iconClass("shield-tick")}" aria-hidden="true"></i> Insured movers</span>
+                <span class="trust-pill"><i class="${iconClass("clock")}" aria-hidden="true"></i> Same-day options</span>
+                <span class="trust-pill"><i class="${iconClass("location")}" aria-hidden="true"></i> London-wide</span>
+              </div>
+              <div class="footer-cta-card">
+                <span class="footer-cta-title">Need a quick quote?</span>
+                <a class="gh-button gh-primary motion-3d-primary" href="${WHATSAPP}"><i class="${iconClass("whatsapp-business")}" aria-hidden="true"></i> Message on WhatsApp</a>
+              </div>
+            </div>
+            <div class="footer-column is-open">
+              <h2>Services</h2>
+              <button class="footer-accordion-trigger" type="button">Services <i class="${iconClass("arrow-down")}" aria-hidden="true"></i></button>
+              <ul class="footer-links">
+                <li><a href="/services/man-and-van/"><i class="${iconClass("truck-speed")}" aria-hidden="true"></i> Man & Van London</a></li>
+                <li><a href="/services/house-removals/"><i class="${iconClass("home-2")}" aria-hidden="true"></i> House Removals</a></li>
+                <li><a href="/services/office-removals/"><i class="${iconClass("buildings-2")}" aria-hidden="true"></i> Office Removals</a></li>
+                <li><a href="/services/same-day-moves/"><i class="${iconClass("clock")}" aria-hidden="true"></i> Same Day Moves</a></li>
+                <li><a href="/services/packing/"><i class="${iconClass("box")}" aria-hidden="true"></i> Packing Service</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h2>Areas</h2>
+              <button class="footer-accordion-trigger" type="button">Areas <i class="${iconClass("arrow-down")}" aria-hidden="true"></i></button>
+              <ul class="footer-links">
+                <li><a href="/areas/east-london/"><i class="${iconClass("map-1")}" aria-hidden="true"></i> East London</a></li>
+                <li><a href="/areas/north-london/"><i class="${iconClass("map-1")}" aria-hidden="true"></i> North London</a></li>
+                <li><a href="/areas/south-london/"><i class="${iconClass("map-1")}" aria-hidden="true"></i> South London</a></li>
+                <li><a href="/areas/west-london/"><i class="${iconClass("map-1")}" aria-hidden="true"></i> West London</a></li>
+                <li><a href="/areas/central-london/"><i class="${iconClass("map-1")}" aria-hidden="true"></i> Central London</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h2>Company</h2>
+              <button class="footer-accordion-trigger" type="button">Company <i class="${iconClass("arrow-down")}" aria-hidden="true"></i></button>
+              <ul class="footer-links">
+                <li><a href="/about/"><i class="${iconClass("users")}" aria-hidden="true"></i> About</a></li>
+                <li><a href="/pricing/"><i class="${iconClass("receipt-text")}" aria-hidden="true"></i> Pricing</a></li>
+                <li><a href="/#faqs"><i class="${iconClass("question-message")}" aria-hidden="true"></i> FAQ</a></li>
+                <li><a href="/app/"><i class="${iconClass("mobile")}" aria-hidden="true"></i> App</a></li>
+                <li><a href="/contact/"><i class="${iconClass("phone")}" aria-hidden="true"></i> Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h2>Contact</h2>
+              <button class="footer-accordion-trigger" type="button">Contact <i class="${iconClass("arrow-down")}" aria-hidden="true"></i></button>
+              <ul class="footer-links">
+                <li><a href="tel:${PHONE_TEL}"><i class="${iconClass("phone")}" aria-hidden="true"></i> ${PHONE_DISPLAY}</a></li>
+                <li><a href="${WHATSAPP}"><i class="${iconClass("whatsapp-business")}" aria-hidden="true"></i> WhatsApp quote</a></li>
+                <li><a href="mailto:info@betarelocation.co.uk"><i class="${iconClass("message-dots")}" aria-hidden="true"></i> info@betarelocation.co.uk</a></li>
+                <li><span class="footer-contact"><i class="${iconClass("location")}" aria-hidden="true"></i> London, United Kingdom</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div>Copyright 2026 Beta Relocation. All rights reserved.</div>
+            <div class="footer-legal"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/sitemap/">Sitemap</a></div>
+          </div>
+        </div>
+      </footer>
+    `;
+  }
+
   function setDrawer(drawerEl, open) {
     if (!drawerEl) return;
     drawerEl.classList.toggle("is-open", open);
@@ -274,6 +348,9 @@
 
     const bottom = document.querySelector("[data-beta-global-bottom-nav]");
     if (bottom) bottom.outerHTML = bottomNavMarkup();
+
+    const footer = document.querySelector("[data-beta-global-footer]");
+    if (footer) footer.outerHTML = footerMarkup();
     if (!document.querySelector("[data-gh-scroll-top]")) {
       document.body.insertAdjacentHTML("beforeend", scrollTopMarkup());
     }
@@ -518,6 +595,20 @@
       if (!event.target.closest(".gh-nav-item")) {
         document.querySelectorAll(".gh-nav-item.is-open").forEach((item) => item.classList.remove("is-open"));
       }
+    });
+    document.querySelectorAll(".footer-accordion-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const column = trigger.closest(".footer-column");
+        if (column) column.classList.toggle("is-open");
+      });
+    });
+    document.querySelectorAll(".faq-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const item = trigger.closest(".faq-item");
+        if (!item) return;
+        const isOpen = item.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(isOpen));
+      });
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setDrawer(drawerEl, false);

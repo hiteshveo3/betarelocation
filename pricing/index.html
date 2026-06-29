@@ -423,14 +423,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><h2>Beta Relocation</h2><p>BETA RELOCATION LIMITED, company number 17304493. Registered office: 20 Chesterton Road, London E13 8BA, England.</p></div>
-      <div><h2>Services</h2><a href="/services/man-and-van/">Man and Van</a><a href="/services/house-removals/">House Removals</a><a href="/services/office-removals/">Office Removals</a><a href="/services/packing/">Packing</a></div>
-      <div><h2>Support</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/insurance/">Insurance</a><a href="/claims-and-complaints/">Claims</a></div>
-      <div><h2>Legal</h2><a href="/terms/">Terms</a><a href="/privacy-policy/">Privacy</a><a href="/cancellation-policy/">Cancellation</a></div>
-    </div>
-  </footer>
+  <div data-beta-global-footer></div>
   <div data-beta-global-bottom-nav></div>
 
   <script>
@@ -533,16 +526,6 @@
       }));
       update();
     })();
-  </script>
-  <script>
-    document.querySelectorAll(".faq-trigger").forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const item = trigger.closest(".faq-item");
-        if (!item) return;
-        const isOpen = item.classList.toggle("is-open");
-        trigger.setAttribute("aria-expanded", String(isOpen));
-      });
-    });
   </script>
   <script src="/assets/beta-global-header.js"></script>
 </body>

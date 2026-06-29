@@ -1979,20 +1979,6 @@
       });
     });
 
-    document.querySelectorAll(".footer-accordion-trigger").forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        trigger.closest(".footer-column").classList.toggle("is-open");
-      });
-    });
-
-    document.querySelectorAll(".faq-trigger").forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const item = trigger.closest(".faq-item");
-        const open = item.classList.toggle("is-open");
-        trigger.setAttribute("aria-expanded", String(open));
-      });
-    });
-
     const reviewRail = document.querySelector(".review-rail");
     const reviewTrack = document.querySelector(".review-track");
 
