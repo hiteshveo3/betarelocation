@@ -159,7 +159,7 @@
       <div class="gh-countdown" data-gh-countdown>
         <div class="gh-container gh-countdown-inner">
           <i class="${iconClass("clock")}" aria-hidden="true"></i>
-          <span data-gh-countdown-label>Same-day request window closes in</span>
+          <span data-gh-countdown-label>Same-day closes in</span>
           <span class="gh-countdown-time" data-gh-countdown-time>--:--:--</span>
           <a href="${WHATSAPP}">Check availability</a>
         </div>
@@ -417,10 +417,10 @@
 
         if (diff > 0) {
           box.classList.remove("is-late");
-          label.textContent = "Same-day request window closes in";
+          label.textContent = "Same-day closes in";
         } else {
           box.classList.add("is-late");
-          label.textContent = "Same-day window passed today. Next request window opens in";
+          label.textContent = "Next same-day window";
           diff = nextOpenSeconds - nowSeconds + (7 * 3600);
         }
 

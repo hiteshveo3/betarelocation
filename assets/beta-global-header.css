@@ -11,6 +11,17 @@
   --gh-shadow: 0 18px 40px rgba(45, 43, 42, 0.12);
 }
 
+html {
+  background: #f9fbff;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  -webkit-tap-highlight-color: rgba(11, 165, 236, 0.12);
+}
+
 .gh-header,
 .gh-top-strip,
 .gh-header * {
@@ -44,6 +55,8 @@
   gap: 12px;
   text-align: center;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .gh-countdown i {
@@ -53,7 +66,7 @@
 
 .gh-countdown-time {
   display: inline-flex;
-  min-width: 96px;
+  min-width: 86px;
   justify-content: center;
   border: 1px solid rgba(245, 158, 11, 0.32);
   border-radius: 999px;
@@ -234,17 +247,18 @@
 body::before {
   content: "";
   position: fixed;
-  inset: -18vh -12vw auto auto;
-  width: min(62vw, 760px);
-  height: min(62vw, 760px);
-  z-index: -1;
+  inset: -14vh -10vw auto auto;
+  width: min(74vw, 880px);
+  height: min(74vw, 880px);
+  z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 28% 24%, rgba(11, 165, 236, 0.22), transparent 34%),
-    radial-gradient(circle at 72% 42%, rgba(224, 247, 255, 0.62), transparent 36%),
-    radial-gradient(circle at 48% 74%, rgba(139, 92, 246, 0.10), transparent 34%);
-  filter: blur(12px);
-  opacity: .82;
+    radial-gradient(circle at 28% 24%, rgba(11, 165, 236, 0.30), transparent 34%),
+    radial-gradient(circle at 72% 42%, rgba(56, 189, 248, 0.24), transparent 36%),
+    radial-gradient(circle at 48% 74%, rgba(139, 92, 246, 0.11), transparent 34%),
+    linear-gradient(135deg, rgba(224,247,255,.32), transparent 62%);
+  filter: blur(10px);
+  opacity: .95;
   animation: beta-liquid-page-bg 16s ease-in-out infinite;
 }
 
@@ -253,16 +267,30 @@ body::after {
   position: fixed;
   left: -16vw;
   bottom: -28vh;
-  width: min(56vw, 680px);
-  height: min(56vw, 680px);
-  z-index: -1;
+  width: min(64vw, 760px);
+  height: min(64vw, 760px);
+  z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 35% 34%, rgba(14, 165, 233, 0.16), transparent 36%),
-    radial-gradient(circle at 68% 62%, rgba(191, 219, 254, 0.48), transparent 38%);
-  filter: blur(16px);
-  opacity: .72;
+    radial-gradient(circle at 35% 34%, rgba(14, 165, 233, 0.22), transparent 36%),
+    radial-gradient(circle at 68% 62%, rgba(191, 219, 254, 0.62), transparent 38%),
+    radial-gradient(circle at 42% 78%, rgba(255, 237, 159, 0.18), transparent 32%);
+  filter: blur(14px);
+  opacity: .84;
   animation: beta-liquid-page-bg 20s ease-in-out infinite reverse;
+}
+
+.gh-top-strip,
+.gh-header,
+.gh-countdown,
+main,
+.site-footer,
+footer,
+.gh-bottom-nav,
+.gh-scroll-top,
+.gh-drawer {
+  position: relative;
+  z-index: 1;
 }
 
 .gh-container {
@@ -614,7 +642,8 @@ body .button-primary.motion-3d-primary {
   background: linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0));
   pointer-events: none;
   z-index: 0;
-  animation: beta-3d-sheen 3.2s ease-in-out infinite;
+  opacity: .72;
+  animation: beta-3d-sheen 4.8s ease-in-out infinite;
 }
 
 .motion-3d-primary::after {
@@ -622,10 +651,10 @@ body .button-primary.motion-3d-primary {
   position: absolute;
   inset: -40%;
   border-radius: inherit;
-  background: radial-gradient(circle, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.16) 24%, transparent 58%);
+  background: radial-gradient(circle, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 24%, transparent 58%);
   pointer-events: none;
   z-index: 0;
-  animation: beta-3d-ripple 2.4s ease-out infinite;
+  animation: beta-3d-ripple 4.2s ease-out infinite;
 }
 
 .motion-3d-primary {
@@ -663,6 +692,11 @@ body .button-primary.motion-3d-primary > i {
 body .button-primary.motion-3d-primary:hover {
   transform: translateY(-2px) scale(1.01) !important;
   box-shadow: 0 4px 0 rgba(84, 32, 173, 0.74), 0 13px 24px rgba(109, 40, 217, 0.26) !important;
+}
+
+.motion-3d-primary:hover::before,
+.motion-3d-primary:hover::after {
+  opacity: .36;
 }
 
 .motion-3d-primary:active,
@@ -812,6 +846,12 @@ body .cta-actions button:hover {
   background: #fff !important;
   color: var(--gh-accent-dark) !important;
   box-shadow: none !important;
+}
+
+body .button.motion-3d-primary:hover,
+body .cta-actions a.motion-3d-primary:hover {
+  background: linear-gradient(135deg, #9b72ff 0%, #8b5cf6 46%, #7c3aed 72%, #6d28d9 100%) !important;
+  color: #fff !important;
 }
 
 body .button-primary:hover,
@@ -1123,24 +1163,38 @@ body .step-number {
 .gh-bottom-nav {
   display: none;
   position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 70;
+  right: 12px;
+  bottom: max(10px, env(safe-area-inset-bottom));
+  left: 12px;
+  z-index: 78;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--gh-border);
-  background: #fff;
+  gap: 4px;
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(224,247,255,.92));
+  box-shadow: 0 14px 36px rgba(31, 22, 51, 0.14);
+  padding: 7px;
+  backdrop-filter: blur(16px);
   font-family: Inter, Arial, sans-serif;
 }
 
 .gh-bottom-nav a {
   display: grid;
-  min-height: 58px;
+  min-height: 48px;
   place-items: center;
   gap: 3px;
+  border-radius: 15px;
   color: var(--gh-ink);
   font-size: 13px;
   text-decoration: none;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.gh-bottom-nav a:hover,
+.gh-bottom-nav a:active {
+  background: rgba(139, 92, 246, 0.10);
+  color: var(--gh-accent-dark);
+  transform: translateY(-1px);
 }
 
 .gh-bottom-nav i {
@@ -1386,8 +1440,10 @@ body .faq-item.is-open .faq-panel {
   .gh-container { width: min(100% - 24px, 1180px); }
   .gh-bottom-nav { display: grid; }
   .gh-scroll-top { right: 14px; bottom: 78px; width: 48px; height: 48px; }
-  .gh-countdown-inner { min-height: 46px; flex-wrap: wrap; gap: 7px 10px; font-size: 12px; padding: 7px 0; }
-  .gh-countdown-time { min-width: 84px; padding: 3px 9px; }
+  .gh-countdown-inner { min-height: 38px; gap: 6px; font-size: 11px; padding: 4px 0; white-space: nowrap; }
+  .gh-countdown i { font-size: 14px; }
+  .gh-countdown-time { min-width: 72px; padding: 2px 6px; }
+  .gh-countdown a { display: none; }
   body .process-grid::before { display: none; }
   body .service-card { animation: none; }
   body .section-action::after,
