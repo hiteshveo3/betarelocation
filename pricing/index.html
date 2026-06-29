@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Prices London | Man and Van from £45/hr</title>
+  <meta name="description" content="Moving prices London from £45/hr. Use Beta Relocation's moving cost calculator for movers, hours, stairs and extras. WhatsApp +44 7490 905545.">
+  <link rel="canonical" href="https://betarelocation.co.uk/pricing/">
+  <meta property="og:title" content="Moving Prices London | Man and Van from £45/hr">
+  <meta property="og:description" content="Estimate London moving costs from £45/hr with clear hourly rates, 2-hour minimum notes, stairs, packing and extras.">
+  <meta property="og:url" content="https://betarelocation.co.uk/pricing/">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/beta-global-header.css">
+  <style>
+    :root {
+      --ink: #1f1633;
+      --muted: #625b72;
+      --purple: #7c3aed;
+      --purple-dark: #5b21b6;
+      --cyan: #06b6d4;
+      --purple-soft: #f3f0ff;
+      --cyan-soft: #e0f7ff;
+      --page: #f8f7fc;
+      --line: #e6e1f5;
+      --line-strong: #d8cff5;
+      --white: #ffffff;
+      --warning-bg: #fff7ed;
+      --warning: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--page); color: var(--ink); font-family: Inter, Arial, sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; }
+    .container { width: min(100% - 32px, 1180px); margin: 0 auto; }
+    .hero { padding: 52px 0 42px; background: linear-gradient(135deg, #ffffff 0%, #f3f0ff 56%, #e0f7ff 100%); border-bottom: 1px solid var(--line); }
+    .breadcrumb { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; color: var(--muted); font-size: 14px; }
+    .breadcrumb a { text-decoration: none; }
+    .eyebrow { display: inline-flex; width: fit-content; align-items: center; gap: 8px; border: 1px solid rgba(124, 58, 237, .2); border-radius: 999px; background: rgba(255,255,255,.92); color: var(--muted); padding: 7px 11px; font-size: 13px; }
+    .eyebrow i { color: var(--purple); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 410px); gap: 30px; align-items: start; }
+    h1 { max-width: 760px; margin: 16px 0 12px; color: #6d28d9; font-size: 32px; line-height: 1.12; font-weight: 400; letter-spacing: 0; }
+    .hero-copy { max-width: 760px; margin: 0; color: var(--muted); font-size: 17px; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+    .meta-row span { border: 1px solid rgba(124,58,237,.15); border-radius: 999px; background: #fff; color: var(--muted); padding: 8px 12px; font-size: 14px; }
+    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 10px; background: #fff; color: var(--ink); padding: 0 16px; text-decoration: none; font-weight: 400; }
+    .button-primary { border-color: var(--purple); background: var(--purple); color: #fff; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-card { display: grid; gap: 12px; border: 1px solid rgba(124,58,237,.18); border-radius: 14px; background: linear-gradient(135deg, #eadfff 0%, #d9c8ff 48%, #bdeeff 100%); padding: 18px; }
+    .hero-card h2 { margin: 0; color: var(--ink); font-size: 24px; line-height: 1.16; font-weight: 400; }
+    .hero-card ul { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
+    .section { padding: 58px 0; }
+    .section-white { background: #fff; }
+    .section-soft { background: var(--purple-soft); }
+    .section-cyan { background: #eefbff; }
+    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 22px; }
+    .section-head h2, .section h2 { margin: 8px 0 0; color: var(--purple-dark); font-size: 28px; line-height: 1.16; font-weight: 400; }
+    .section-head p { max-width: 520px; margin: 0; color: var(--muted); }
+    .calculator { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr); gap: 20px; align-items: start; }
+    .calc-stack { display: grid; gap: 12px; }
+    .calc-card, .summary-card, .rate-card, .card { border: 1px solid rgba(124,58,237,.16); border-radius: 14px; background: #fff; padding: 18px; }
+    .calc-card h3, .rate-card h3, .card h3 { margin: 0 0 6px; color: var(--ink); font-size: 18px; line-height: 1.25; font-weight: 400; }
+    .calc-card p, .card p, .rate-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .team-option { display: grid; gap: 4px; min-height: 112px; border: 1px solid var(--line); border-radius: 12px; background: var(--purple-soft); color: var(--ink); padding: 14px; cursor: pointer; text-align: left; font-family: inherit; }
+    .team-option.is-active { border-color: var(--purple); background: linear-gradient(135deg, #f3f0ff, #e0f7ff); }
+    .team-rate { color: var(--purple-dark); font-size: 26px; line-height: 1.05; }
+    .team-note { color: var(--muted); font-size: 12px; }
+    .stepper { display: grid; grid-template-columns: 48px 1fr 48px; gap: 12px; align-items: center; margin-top: 16px; }
+    .stepper button { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; color: var(--purple-dark); cursor: pointer; font: inherit; font-size: 22px; }
+    .stepper button:disabled { opacity: .38; cursor: not-allowed; }
+    .stepper-value { text-align: center; }
+    .stepper-value strong { display: block; color: var(--ink); font-size: 44px; line-height: 1; font-weight: 400; }
+    .stepper-value span { display: block; color: var(--muted); font-size: 12px; }
+    .helper-note { margin-top: 12px; border-radius: 10px; background: var(--purple-soft); color: var(--muted); padding: 10px 12px; font-size: 13px; text-align: center; }
+    .extra-list { display: grid; gap: 8px; margin-top: 14px; }
+    .extra { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 11px 12px; }
+    .extra.is-active { border-color: rgba(124,58,237,.35); background: var(--purple-soft); }
+    .extra i { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 8px; background: #f0ebff; color: var(--purple); font-size: 18px; }
+    .extra-title { color: var(--ink); font-size: 14px; }
+    .extra small { display: block; color: var(--muted); font-size: 12px; }
+    .toggle-extra { min-width: 82px; border: 1px solid var(--line-strong); border-radius: 8px; background: #fff; color: var(--purple-dark); padding: 7px 12px; cursor: pointer; font: inherit; }
+    .summary-wrap { position: sticky; top: 88px; display: grid; gap: 12px; }
+    .summary-card { background: linear-gradient(135deg, #eadfff 0%, #d9c8ff 48%, #bdeeff 100%); border-color: rgba(124,58,237,.28); }
+    .summary-label { margin: 0 0 6px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    .summary-price { margin: 0; color: var(--purple-dark); font-size: 46px; line-height: 1; }
+    .summary-sub { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    .breakdown { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .breakdown-head { background: var(--purple-soft); border-bottom: 1px solid var(--line); padding: 11px 16px; color: var(--ink); font-size: 14px; }
+    .breakdown-row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+    .breakdown-row:last-child { border-bottom: 0; }
+    .breakdown-row strong { color: var(--ink); font-weight: 400; }
+    .breakdown-total { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(124,58,237,.25); background: var(--purple-soft); color: var(--purple-dark); padding: 13px 16px; font-size: 17px; }
+    .warning { border: 1px solid #fed7aa; border-radius: 12px; background: var(--warning-bg); color: var(--warning); padding: 12px 14px; font-size: 13px; }
+    .price-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: #fff; scrollbar-color: var(--purple) #eee8fb; scrollbar-width: thin; }
+    .price-table { width: 100%; min-width: 780px; border-collapse: collapse; }
+    .price-table th, .price-table td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; color: var(--muted); font-size: 14px; }
+    .price-table th { background: var(--cyan-soft); color: var(--ink); font-weight: 400; }
+    .price-table tr:last-child td { border-bottom: 0; }
+    .grid-3, .grid-4 { display: grid; gap: 16px; }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .section-soft .card { background: #fff; }
+    .example-price { margin-top: 10px; color: var(--purple-dark); font-size: 22px; }
+    .faq-section-head { display: grid; justify-content: center; gap: 12px; text-align: center; }
+    .faq-section-head .eyebrow { margin: 0 auto; }
+    .faq-list { display: grid; gap: 10px; max-width: 860px; margin: 0 auto; }
+    .faq-item { padding: 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: hidden; }
+    .faq-trigger { display: flex; width: 100%; min-height: 60px; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border: 0; background: #fff; color: var(--ink); cursor: pointer; text-align: left; font: inherit; }
+    .faq-trigger h3 { margin: 0; font-size: 17px; line-height: 1.25; font-weight: 400; }
+    .faq-trigger i { flex: 0 0 auto; color: var(--purple); font-size: 20px; transition: transform 180ms ease; }
+    .faq-item.is-open .faq-trigger i { transform: rotate(180deg); }
+    .faq-panel { display: none; padding: 0 18px 18px; background: #fff; }
+    .faq-item.is-open .faq-panel { display: block; }
+    .faq-panel p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .cta-band { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: center; border: 1px solid rgba(124,58,237,.18); border-radius: 14px; background: linear-gradient(135deg, #f3f0ff, #e0f7ff); padding: 24px; }
+    .cta-band h2 { margin: 0; color: var(--ink); font-size: 28px; line-height: 1.16; font-weight: 400; }
+    .cta-band p { margin: 8px 0 0; color: var(--muted); }
+    .site-footer { background: #f6f4fb; border-top: 1px solid var(--line); padding: 40px 0 88px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 24px; }
+    .footer-grid h2 { margin: 0 0 10px; color: var(--ink); font-size: 16px; font-weight: 400; }
+    .footer-grid a { display: block; margin: 7px 0; color: var(--muted); text-decoration: none; }
+    .footer-grid p { margin: 10px 0; color: var(--muted); }
+    @media (max-width: 980px) {
+      .hero-grid, .calculator, .cta-band { grid-template-columns: 1fr; }
+      .summary-wrap { position: static; }
+      .grid-3, .grid-4, .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      body { padding-bottom: 62px; }
+      .container { width: min(100% - 24px, 1180px); }
+      .hero { padding: 38px 0 30px; }
+      .section { padding: 46px 0; }
+      .section-head { display: grid; align-items: start; }
+      .team-grid, .grid-3, .grid-4, .footer-grid { grid-template-columns: 1fr; }
+      .cta-actions { display: grid; width: 100%; }
+      .button { width: 100%; }
+      .extra { grid-template-columns: 34px minmax(0, 1fr); }
+      .toggle-extra { grid-column: 1 / -1; width: 100%; }
+      .summary-price { font-size: 40px; }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MovingCompany",
+          "@id": "https://betarelocation.co.uk/#business",
+          "name": "Beta Relocation",
+          "legalName": "BETA RELOCATION LIMITED",
+          "url": "https://betarelocation.co.uk/",
+          "telephone": "+447490905545",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "20 Chesterton Road",
+            "addressLocality": "London",
+            "postalCode": "E13 8BA",
+            "addressCountry": "GB"
+          },
+          "areaServed": { "@type": "City", "name": "London" },
+          "priceRange": "£45-£65 per hour"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://betarelocation.co.uk/pricing/#page",
+          "name": "Moving Prices London",
+          "url": "https://betarelocation.co.uk/pricing/",
+          "description": "Moving prices London from £45/hr with an interactive cost calculator for movers, hours, stairs and extras."
+        },
+        {
+          "@type": "Service",
+          "@id": "https://betarelocation.co.uk/pricing/#moving-prices",
+          "name": "Moving Prices London",
+          "serviceType": "Man and van moving prices",
+          "provider": { "@id": "https://betarelocation.co.uk/#business" },
+          "areaServed": { "@type": "City", "name": "London" },
+          "offers": [
+            { "@type": "Offer", "name": "One mover and van", "price": "45", "priceCurrency": "GBP", "description": "From £45 per hour with a 2-hour minimum." },
+            { "@type": "Offer", "name": "Two movers and van", "price": "65", "priceCurrency": "GBP", "description": "From £65 per hour with a 2-hour minimum." }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://betarelocation.co.uk/pricing/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://betarelocation.co.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Moving Prices London", "item": "https://betarelocation.co.uk/pricing/" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://betarelocation.co.uk/pricing/#faq",
+          "mainEntity": [
+            { "@type": "Question", "name": "How much are moving prices London?", "acceptedAnswer": { "@type": "Answer", "text": "Moving prices London start from £45/hr for one mover and van or £65/hr for two movers and van. Most bookings have a 2-hour minimum." } },
+            { "@type": "Question", "name": "Does the calculator give a confirmed quote?", "acceptedAnswer": { "@type": "Answer", "text": "No. The calculator gives an estimate only. Final cost depends on actual access, parking, waiting time, team size and item volume." } },
+            { "@type": "Question", "name": "What affects the final moving price?", "acceptedAnswer": { "@type": "Answer", "text": "Team size, hours, stairs, lift access, parking distance, waiting time, packing, item volume and specialist handling can affect the final moving price." } },
+            { "@type": "Question", "name": "Do you use online forms?", "acceptedAnswer": { "@type": "Answer", "text": "No. Beta Relocation uses WhatsApp, phone and app updates as the booking routes for now." } }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body>
+  <div data-beta-global-header></div>
+  <div data-beta-global-drawer></div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Moving Prices London</span></nav>
+          <span class="eyebrow"><i class="iconsax" icon-name="calculator"></i> Moving cost calculator</span>
+          <h1>Moving Prices London</h1>
+          <p class="hero-copy">Use the Beta Relocation moving cost calculator to estimate a London move before you message us. Choose movers, hours, stairs and extras to see a live estimate based on our visible hourly rates.</p>
+          <div class="meta-row">
+            <span>1 mover + van from £45/hr</span>
+            <span>2 movers + van from £65/hr</span>
+            <span>2-hour minimum</span>
+            <span>Estimate first, confirm on WhatsApp</span>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-primary motion-3d-primary" href="#calculator"><i class="iconsax" icon-name="calculator"></i> Use calculator</a>
+            <a class="button" href="https://wa.me/447490905545"><i class="iconsax" icon-name="whatsapp-business"></i> WhatsApp quote</a>
+            <a class="button" href="tel:+447490905545"><i class="iconsax" icon-name="phone"></i> Call +44 7490 905545</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Pricing summary">
+          <h2>Quick price guide</h2>
+          <ul>
+            <li>£45/hr for one mover and van</li>
+            <li>£65/hr for two movers and van</li>
+            <li>Extra time after 2 hours estimated at lower hourly rates</li>
+            <li>Access, parking and waiting time confirmed before booking</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-white" id="calculator">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow"><i class="iconsax" icon-name="calculator"></i> Live estimator</span><h2>Moving cost calculator</h2></div>
+          <p>This is an estimate, not a confirmed quote. It helps you understand the main cost drivers before sending move details on WhatsApp.</p>
+        </div>
+        <div class="calculator" data-calculator>
+          <div class="calc-stack">
+            <article class="calc-card">
+              <h3>Step 1: choose your moving team</h3>
+              <p>One mover suits small loads and single items. Two movers are better for stairs, heavy furniture and faster loading.</p>
+              <div class="team-grid" role="group" aria-label="Choose moving team">
+                <button class="team-option is-active" type="button" data-team="1">
+                  <span class="team-rate">£45/hr</span>
+                  <span>1 mover + van</span>
+                  <span class="team-note">Transit van, £40/hr after 2 hrs</span>
+                </button>
+                <button class="team-option" type="button" data-team="2">
+                  <span class="team-rate">£65/hr</span>
+                  <span>2 movers + van</span>
+                  <span class="team-note">Larger van, £50/hr after 2 hrs</span>
+                </button>
+              </div>
+            </article>
+
+            <article class="calc-card">
+              <h3>Step 2: estimated hours</h3>
+              <p>Studio or 1-bed moves often start around 2-3 hours. Larger homes, stairs and packing take longer.</p>
+              <div class="stepper" data-stepper="hours">
+                <button type="button" data-change="-0.5" aria-label="Decrease hours">-</button>
+                <div class="stepper-value"><strong data-value>2</strong><span>hours</span></div>
+                <button type="button" data-change="0.5" aria-label="Increase hours">+</button>
+              </div>
+              <div class="helper-note" data-hour-note>2-hour minimum. Any additional hours are £40/hr.</div>
+            </article>
+
+            <article class="calc-card">
+              <h3>Step 3: stairs at pickup</h3>
+              <p>Set floors above ground when there is no working lift. Each floor adds roughly 30 minutes.</p>
+              <div class="stepper" data-stepper="pickup">
+                <button type="button" data-change="-1" aria-label="Fewer pickup floors">-</button>
+                <div class="stepper-value"><strong data-value>0</strong><span>floors</span></div>
+                <button type="button" data-change="1" aria-label="More pickup floors">+</button>
+              </div>
+            </article>
+
+            <article class="calc-card">
+              <h3>Step 4: stairs at delivery</h3>
+              <p>Use the same rule for the new address. Set to 0 for ground floor or a working lift.</p>
+              <div class="stepper" data-stepper="delivery">
+                <button type="button" data-change="-1" aria-label="Fewer delivery floors">-</button>
+                <div class="stepper-value"><strong data-value>0</strong><span>floors</span></div>
+                <button type="button" data-change="1" aria-label="More delivery floors">+</button>
+              </div>
+            </article>
+
+            <article class="calc-card">
+              <h3>Step 5: extras</h3>
+              <p>Toggle anything that applies. These add estimated time so the price feels closer to real move-day conditions.</p>
+              <div class="extra-list">
+                <div class="extra" data-extra="packing" data-hours="2"><i class="iconsax" icon-name="box"></i><div><span class="extra-title">Packing help</span><small>Materials and packing support, adds about 2 hours</small></div><button class="toggle-extra" type="button">Add</button></div>
+                <div class="extra" data-extra="piano" data-hours="1"><i class="iconsax" icon-name="music"></i><div><span class="extra-title">Piano or specialist heavy item</span><small>Upright piano, gym equipment or awkward item, adds about 1 hour</small></div><button class="toggle-extra" type="button">Add</button></div>
+                <div class="extra" data-extra="storage" data-hours="0.5"><i class="iconsax" icon-name="building"></i><div><span class="extra-title">Storage drop-off</span><small>Some items going to storage, adds about 30 minutes</small></div><button class="toggle-extra" type="button">Add</button></div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="summary-wrap" aria-label="Moving estimate summary">
+            <div class="summary-card">
+              <p class="summary-label">Live estimate</p>
+              <p class="summary-price" data-total>£90</p>
+              <p class="summary-sub" data-summary>1 mover + van, 2 hours estimated</p>
+            </div>
+            <div class="breakdown">
+              <div class="breakdown-head">Cost breakdown</div>
+              <div class="breakdown-row"><span>Base first 2 hours</span><strong data-base>£90</strong></div>
+              <div class="breakdown-row" data-extra-hours-row hidden><span data-extra-hours-label></span><strong data-extra-hours-value></strong></div>
+              <div class="breakdown-row" data-stairs-row hidden><span>Stairs time</span><strong data-stairs-value></strong></div>
+              <div class="breakdown-row" data-packing-row hidden><span>Packing time</span><strong data-packing-value></strong></div>
+              <div class="breakdown-row" data-piano-row hidden><span>Piano or heavy item time</span><strong data-piano-value></strong></div>
+              <div class="breakdown-row" data-storage-row hidden><span>Storage drop-off time</span><strong data-storage-value></strong></div>
+              <div class="breakdown-row"><span>Total time estimated</span><strong data-hours-total>2 hrs</strong></div>
+              <div class="breakdown-total"><span>Estimated total</span><span data-total-small>£90</span></div>
+            </div>
+            <div class="warning"><i class="iconsax" icon-name="info-circle"></i> Estimate only. Final cost depends on actual access, parking, waiting time, item volume and move-day conditions.</div>
+            <a class="button button-primary motion-3d-primary" data-whatsapp-estimate href="https://wa.me/447490905545" target="_blank" rel="noopener"><i class="iconsax" icon-name="whatsapp-business"></i> WhatsApp this estimate</a>
+            <a class="button" href="/app/"><i class="iconsax" icon-name="mobile"></i> App booking updates</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="rates">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow"><i class="iconsax" icon-name="receipt-text"></i> Rate table</span><h2>Moving prices London table</h2></div>
+          <p>Use these as starting rates. The calculator above adds estimated time for stairs and extras.</p>
+        </div>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead><tr><th>Option</th><th>Starting price</th><th>After 2 hours</th><th>Best for</th><th>Included</th></tr></thead>
+            <tbody>
+              <tr><td>1 mover + transit van</td><td>£45/hour<br>2-hour minimum</td><td>£40/hour estimated</td><td>Single items, student rooms, small flat moves</td><td>Mover, van, loading, transport, unloading</td></tr>
+              <tr><td>2 movers + larger van</td><td>£65/hour<br>2-hour minimum</td><td>£50/hour estimated</td><td>Furniture, stairs, larger rooms, faster loading</td><td>Two movers, safer lifting, insured transport</td></tr>
+              <tr><td>Packing support</td><td>Estimated by time</td><td>Added to job duration</td><td>Fragile items, kitchen packing, full move prep</td><td>Materials, packing, labelling and preparation</td></tr>
+              <tr><td>Specialist access</td><td>Confirmed before booking</td><td>Depends on job</td><td>Piano, sofa access, tight stairs, long carries</td><td>Access review and safe moving plan</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="examples">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow"><i class="iconsax" icon-name="calculator"></i> Examples</span><h2>Example moving price ranges</h2></div>
+          <p>These are planning examples, not promises. Actual time depends on access, parking and what needs moving.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h3>Single sofa or marketplace collection</h3><p>Usually starts with the 2-hour minimum if access and parking are simple.</p><div class="example-price">From £90</div></article>
+          <article class="card"><h3>Studio or student room</h3><p>Often 2-3 hours with one mover and a transit van when items are packed and ready.</p><div class="example-price">£90-£130</div></article>
+          <article class="card"><h3>1-bed flat with stairs</h3><p>Often needs 3-4 hours depending on floor level, van distance and item volume.</p><div class="example-price">£130-£190</div></article>
+          <article class="card"><h3>2-bed flat or small house</h3><p>Usually better with two movers, especially with heavy furniture or stairs.</p><div class="example-price">£130-£230</div></article>
+          <article class="card"><h3>Packing plus move</h3><p>Packing adds time, but can reduce move-day stress and damage risk.</p><div class="example-price">Estimate first</div></article>
+          <article class="card"><h3>Same-day move</h3><p>Same-day availability depends on crew schedule, access and realistic timing.</p><div class="example-price">Check WhatsApp</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cyan" id="factors">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow"><i class="iconsax" icon-name="info-circle"></i> Cost factors</span><h2>What affects your moving price</h2></div>
+          <p>The biggest difference between a low estimate and a real quote is usually access detail.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card"><h3>Parking distance</h3><p>Long carries from van to door add time quickly.</p></article>
+          <article class="card"><h3>Stairs and lift access</h3><p>No lift, narrow stairs or multiple floors increase loading time.</p></article>
+          <article class="card"><h3>Item volume</h3><p>More boxes and furniture means more handling and van packing.</p></article>
+          <article class="card"><h3>Readiness</h3><p>Packed boxes, dismantled furniture and clear access make the move faster.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="faqs">
+      <div class="container">
+        <div class="section-head faq-section-head">
+          <span class="eyebrow"><i class="iconsax" icon-name="message-question"></i> FAQ</span>
+          <h2>Pricing questions</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item is-open">
+            <button class="faq-trigger" type="button" aria-expanded="true"><h3>How much are moving prices London?</h3><i class="iconsax" icon-name="arrow-down"></i></button>
+            <div class="faq-panel"><p>Moving prices London start from £45/hr for one mover and van or £65/hr for two movers and van. Most bookings have a 2-hour minimum.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false"><h3>Does the calculator give a confirmed quote?</h3><i class="iconsax" icon-name="arrow-down"></i></button>
+            <div class="faq-panel"><p>No. The calculator gives a planning estimate only. Send photos, postcodes, access and item details on WhatsApp for a confirmed quote.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false"><h3>Why do stairs change the price?</h3><i class="iconsax" icon-name="arrow-down"></i></button>
+            <div class="faq-panel"><p>Stairs usually increase loading and unloading time. The calculator adds about 30 minutes per floor without a working lift.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false"><h3>Are there hidden fees?</h3><i class="iconsax" icon-name="arrow-down"></i></button>
+            <div class="faq-panel"><p>No hidden website fees. Parking, waiting time, access issues, packing and specialist handling are discussed before booking.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false"><h3>Can I book through a form?</h3><i class="iconsax" icon-name="arrow-down"></i></button>
+            <div class="faq-panel"><p>No website forms are used right now. WhatsApp, phone and app updates are the booking routes.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container cta-band">
+        <div><h2>Ready to confirm your moving price?</h2><p>Use the calculator, then send your estimate and move details on WhatsApp. Include postcodes, item photos, floors, lift access and parking notes.</p></div>
+        <div class="cta-actions">
+          <a class="button button-primary motion-3d-primary" href="https://wa.me/447490905545"><i class="iconsax" icon-name="whatsapp-business"></i> WhatsApp quote</a>
+          <a class="button" href="tel:+447490905545"><i class="iconsax" icon-name="phone"></i> Call +44 7490 905545</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><h2>Beta Relocation</h2><p>BETA RELOCATION LIMITED, company number 17304493. Registered office: 20 Chesterton Road, London E13 8BA, England.</p></div>
+      <div><h2>Services</h2><a href="/services/man-and-van/">Man and Van</a><a href="/services/house-removals/">House Removals</a><a href="/services/office-removals/">Office Removals</a><a href="/services/packing/">Packing</a></div>
+      <div><h2>Support</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/insurance/">Insurance</a><a href="/claims-and-complaints/">Claims</a></div>
+      <div><h2>Legal</h2><a href="/terms/">Terms</a><a href="/privacy-policy/">Privacy</a><a href="/cancellation-policy/">Cancellation</a></div>
+    </div>
+  </footer>
+  <div data-beta-global-bottom-nav></div>
+
+  <script>
+    (() => {
+      const state = { team: 1, hours: 2, pickup: 0, delivery: 0, extras: { packing: false, piano: false, storage: false } };
+      const rates = { 1: { base: 45, extra: 40, label: "1 mover + van" }, 2: { base: 65, extra: 50, label: "2 movers + van" } };
+      const format = (value) => `£${Math.round(value)}`;
+      const half = (value) => Math.round(value * 2) / 2;
+      const calculator = document.querySelector("[data-calculator]");
+      if (!calculator) return;
+
+      function totalHours() {
+        let hours = state.hours + (state.pickup * 0.5) + (state.delivery * 0.5);
+        if (state.extras.packing) hours += 2;
+        if (state.extras.piano) hours += 1;
+        if (state.extras.storage) hours += 0.5;
+        return half(hours);
+      }
+
+      function costFor(hours) {
+        const rate = rates[state.team];
+        if (hours <= 2) return rate.base * 2;
+        return (rate.base * 2) + (rate.extra * (hours - 2));
+      }
+
+      function setHidden(selector, hidden) {
+        const el = calculator.querySelector(selector);
+        if (el) el.hidden = hidden;
+      }
+
+      function setText(selector, text) {
+        const el = calculator.querySelector(selector);
+        if (el) el.textContent = text;
+      }
+
+      function updateWhatsapp(total, hours) {
+        const text = `Hi Beta Relocation, my calculator estimate is ${format(total)} for ${rates[state.team].label}, ${hours} hours estimated. Pickup floors: ${state.pickup}. Delivery floors: ${state.delivery}. Extras: ${Object.entries(state.extras).filter(([,v]) => v).map(([k]) => k).join(", ") || "none"}. Please confirm availability and price.`;
+        const link = calculator.querySelector("[data-whatsapp-estimate]");
+        if (link) link.href = `https://wa.me/447490905545?text=${encodeURIComponent(text)}`;
+      }
+
+      function update() {
+        const hours = totalHours();
+        const total = costFor(hours);
+        const rate = rates[state.team];
+        setText("[data-total]", format(total));
+        setText("[data-total-small]", format(total));
+        setText("[data-summary]", `${rate.label}, ${hours} ${hours === 1 ? "hour" : "hours"} estimated`);
+        setText("[data-base]", format(rate.base * 2));
+        setText("[data-hours-total]", `${hours} ${hours === 1 ? "hr" : "hrs"}`);
+        setText("[data-hour-note]", state.hours > 2 ? `First 2 hours at £${rate.base}/hr, then ${half(state.hours - 2)} extra hour(s) at £${rate.extra}/hr.` : `2-hour minimum. Any additional hours are £${rate.extra}/hr.`);
+
+        const extraHours = Math.max(0, state.hours - 2);
+        setHidden("[data-extra-hours-row]", extraHours <= 0);
+        setText("[data-extra-hours-label]", `+${extraHours} extra hour(s) @ £${rate.extra}/hr`);
+        setText("[data-extra-hours-value]", format(extraHours * rate.extra));
+
+        const stairsHours = half((state.pickup + state.delivery) * 0.5);
+        setHidden("[data-stairs-row]", stairsHours <= 0);
+        setText("[data-stairs-value]", `+${stairsHours} hr`);
+
+        const extraRows = { packing: 2, piano: 1, storage: 0.5 };
+        Object.entries(extraRows).forEach(([key, extraTime]) => {
+          setHidden(`[data-${key}-row]`, !state.extras[key]);
+          const value = Math.max(0, total - costFor(hours - extraTime));
+          setText(`[data-${key}-value]`, format(value));
+        });
+
+        calculator.querySelectorAll("[data-team]").forEach((button) => button.classList.toggle("is-active", Number(button.dataset.team) === state.team));
+        calculator.querySelectorAll("[data-stepper]").forEach((stepper) => {
+          const key = stepper.dataset.stepper;
+          const value = key === "hours" ? state.hours : state[key];
+          stepper.querySelector("[data-value]").textContent = value;
+          const minus = stepper.querySelector('[data-change^="-"]');
+          if (minus) minus.disabled = key === "hours" ? value <= 2 : value <= 0;
+        });
+        calculator.querySelectorAll("[data-extra]").forEach((extra) => {
+          const key = extra.dataset.extra;
+          const active = state.extras[key];
+          extra.classList.toggle("is-active", active);
+          extra.querySelector(".toggle-extra").textContent = active ? "Remove" : "Add";
+        });
+        updateWhatsapp(total, hours);
+      }
+
+      calculator.querySelectorAll("[data-team]").forEach((button) => button.addEventListener("click", () => { state.team = Number(button.dataset.team); update(); }));
+      calculator.querySelectorAll("[data-stepper]").forEach((stepper) => {
+        stepper.querySelectorAll("[data-change]").forEach((button) => button.addEventListener("click", () => {
+          const key = stepper.dataset.stepper;
+          const next = half((key === "hours" ? state.hours : state[key]) + Number(button.dataset.change));
+          if (key === "hours") state.hours = Math.min(24, Math.max(2, next));
+          else state[key] = Math.min(10, Math.max(0, next));
+          update();
+        }));
+      });
+      calculator.querySelectorAll(".toggle-extra").forEach((button) => button.addEventListener("click", () => {
+        const extra = button.closest("[data-extra]");
+        state.extras[extra.dataset.extra] = !state.extras[extra.dataset.extra];
+        update();
+      }));
+      update();
+    })();
+  </script>
+  <script>
+    document.querySelectorAll(".faq-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const item = trigger.closest(".faq-item");
+        if (!item) return;
+        const isOpen = item.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(isOpen));
+      });
+    });
+  </script>
+  <script src="/assets/beta-global-header.js"></script>
+</body>
+</html>

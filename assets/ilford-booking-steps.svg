@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">How to book man and van Ilford</title>
+  <desc id="desc">Three step booking visual for sending details, confirming price, and moving day.</desc>
+  <rect width="1200" height="900" rx="36" fill="#e0f7ff"/>
+  <text x="120" y="140" font-family="Inter, Arial, sans-serif" font-size="54" fill="#1f1633">Book in three steps</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(120 250)">
+      <circle cx="90" cy="90" r="78" fill="#7c3aed"/>
+      <text x="69" y="112" font-size="62" fill="#fff">1</text>
+      <text x="205" y="82" font-size="38" fill="#1f1633">Send details</text>
+      <text x="205" y="132" font-size="27" fill="#5f5870">Date, postcodes, items, stairs</text>
+    </g>
+    <g transform="translate(120 425)">
+      <circle cx="90" cy="90" r="78" fill="#06b6d4"/>
+      <text x="69" y="112" font-size="62" fill="#fff">2</text>
+      <text x="205" y="82" font-size="38" fill="#1f1633">Confirm price</text>
+      <text x="205" y="132" font-size="27" fill="#5f5870">Team size, access, time basis</text>
+    </g>
+    <g transform="translate(120 600)">
+      <circle cx="90" cy="90" r="78" fill="#5b21b6"/>
+      <text x="69" y="112" font-size="62" fill="#fff">3</text>
+      <text x="205" y="82" font-size="38" fill="#1f1633">Move day</text>
+      <text x="205" y="132" font-size="27" fill="#5f5870">Load, transport and unload</text>
+    </g>
+  </g>
+</svg>

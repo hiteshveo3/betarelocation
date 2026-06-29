@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ilford moving services</title>
+  <desc id="desc">Illustrated grid of moving services including furniture, packing, student moves, and single item moves.</desc>
+  <rect width="1200" height="900" rx="36" fill="#fff"/>
+  <g transform="translate(110 120)" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="0" font-size="50" fill="#1f1633">Ilford moving services</text>
+    <g transform="translate(0 90)">
+      <rect width="300" height="250" rx="24" fill="#f3f0ff"/>
+      <rect x="72" y="83" width="156" height="88" rx="14" fill="#7c3aed"/>
+      <text x="58" y="215" font-size="28" fill="#1f1633">Furniture</text>
+    </g>
+    <g transform="translate(340 90)">
+      <rect width="300" height="250" rx="24" fill="#e0f7ff"/>
+      <rect x="72" y="70" width="70" height="80" fill="#06b6d4"/>
+      <rect x="150" y="95" width="78" height="90" fill="#5b21b6"/>
+      <text x="80" y="215" font-size="28" fill="#1f1633">Packing</text>
+    </g>
+    <g transform="translate(680 90)">
+      <rect width="300" height="250" rx="24" fill="#f3f0ff"/>
+      <circle cx="150" cy="98" r="48" fill="#7c3aed"/>
+      <rect x="86" y="148" width="128" height="42" rx="21" fill="#06b6d4"/>
+      <text x="50" y="215" font-size="28" fill="#1f1633">Student moves</text>
+    </g>
+    <g transform="translate(170 385)">
+      <rect width="300" height="250" rx="24" fill="#e0f7ff"/>
+      <path d="M90 150h120l35 48H55z" fill="#7c3aed"/>
+      <circle cx="94" cy="205" r="22" fill="#1f1633"/>
+      <circle cx="205" cy="205" r="22" fill="#1f1633"/>
+      <text x="44" y="85" font-size="28" fill="#1f1633">Single item</text>
+    </g>
+    <g transform="translate(510 385)">
+      <rect width="300" height="250" rx="24" fill="#f3f0ff"/>
+      <path d="M80 78h140v116H80z" fill="#5b21b6"/>
+      <path d="M92 92h116v88H92z" fill="#fff" opacity=".82"/>
+      <text x="60" y="215" font-size="28" fill="#1f1633">House moves</text>
+    </g>
+  </g>
+</svg>

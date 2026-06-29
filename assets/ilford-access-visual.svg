@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ilford access details for moving quote</title>
+  <desc id="desc">Illustrated access checklist showing stairs, lift, parking and item photos.</desc>
+  <rect width="1200" height="900" rx="36" fill="#f3f0ff"/>
+  <text x="110" y="140" font-family="Inter, Arial, sans-serif" font-size="52" fill="#1f1633">Access details matter</text>
+  <g transform="translate(110 225)" font-family="Inter, Arial, sans-serif">
+    <rect width="455" height="240" rx="24" fill="#fff"/>
+    <path d="M70 180h280M70 140h220M70 100h160" stroke="#7c3aed" stroke-width="24" stroke-linecap="round"/>
+    <text x="70" y="70" font-size="32" fill="#1f1633">Stairs</text>
+    <rect x="545" width="455" height="240" rx="24" fill="#fff"/>
+    <rect x="625" y="62" width="145" height="125" rx="16" fill="#06b6d4"/>
+    <path d="M698 95v60M668 125h60" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+    <text x="810" y="130" font-size="32" fill="#1f1633">Lift access</text>
+    <rect y="305" width="455" height="240" rx="24" fill="#fff"/>
+    <rect x="72" y="395" width="210" height="68" rx="16" fill="#5b21b6"/>
+    <circle cx="125" cy="475" r="23" fill="#1f1633"/>
+    <circle cx="235" cy="475" r="23" fill="#1f1633"/>
+    <text x="315" y="435" font-size="32" fill="#1f1633">Parking</text>
+    <rect x="545" y="305" width="455" height="240" rx="24" fill="#fff"/>
+    <rect x="625" y="370" width="130" height="98" rx="18" fill="#e0f7ff" stroke="#06b6d4" stroke-width="8"/>
+    <circle cx="720" cy="398" r="12" fill="#06b6d4"/>
+    <path d="M640 456l40-34 35 25 22-18 24 27z" fill="#7c3aed"/>
+    <text x="805" y="435" font-size="32" fill="#1f1633">Item photos</text>
+  </g>
+</svg>

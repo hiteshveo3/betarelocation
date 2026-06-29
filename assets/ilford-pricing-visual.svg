@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Man and van Ilford pricing visual</title>
+  <desc id="desc">Pricing comparison visual showing one mover and van from £45 per hour and two movers and van from £65 per hour.</desc>
+  <rect width="1200" height="900" rx="36" fill="#f3f0ff"/>
+  <text x="110" y="150" font-family="Inter, Arial, sans-serif" font-size="54" fill="#1f1633">Clear Ilford pricing</text>
+  <g transform="translate(110 250)">
+    <rect width="430" height="390" rx="28" fill="#fff"/>
+    <text x="46" y="82" font-family="Inter, Arial, sans-serif" font-size="34" fill="#5b21b6">1 man + van</text>
+    <text x="46" y="185" font-family="Inter, Arial, sans-serif" font-size="82" fill="#1f1633">£45</text>
+    <text x="250" y="183" font-family="Inter, Arial, sans-serif" font-size="30" fill="#5f5870">/hour</text>
+    <rect x="46" y="244" width="310" height="22" rx="11" fill="#06b6d4"/>
+    <text x="46" y="324" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5f5870">Single items · small moves</text>
+  </g>
+  <g transform="translate(660 250)">
+    <rect width="430" height="390" rx="28" fill="#fff"/>
+    <text x="46" y="82" font-family="Inter, Arial, sans-serif" font-size="34" fill="#5b21b6">2 men + van</text>
+    <text x="46" y="185" font-family="Inter, Arial, sans-serif" font-size="82" fill="#1f1633">£65</text>
+    <text x="250" y="183" font-family="Inter, Arial, sans-serif" font-size="30" fill="#5f5870">/hour</text>
+    <rect x="46" y="244" width="345" height="22" rx="11" fill="#7c3aed"/>
+    <text x="46" y="324" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5f5870">Furniture · stairs · faster loading</text>
+  </g>
+  <rect x="210" y="705" width="780" height="68" rx="34" fill="#e0f7ff"/>
+  <text x="270" y="750" font-family="Inter, Arial, sans-serif" font-size="28" fill="#075985">Access, parking, stairs and job length are confirmed before booking</text>
+</svg>

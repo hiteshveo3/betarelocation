@@ -1,0 +1,963 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beta Relocation Navigation System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://iconsax.gitlab.io/i/icons.css" />
+  <style>
+    :root {
+      --br-primary: #1a1a1a;
+      --br-primary-soft: #3c3c3c;
+      --br-muted: #7f7f7f;
+      --br-accent: #8b5cf6;
+      --br-accent-hover: #7c3aed;
+      --br-accent-dark: #6d28d9;
+      --br-cyan: #0ba5ec;
+      --br-cyan-hover: #0284c7;
+      --br-cyan-bg: #e0f7ff;
+      --br-bg: #f9f9f9;
+      --br-surface: #ffffff;
+      --br-surface-2: #f3f0ff;
+      --br-border: #e5e5e5;
+      --br-border-strong: #d1d1d1;
+      --br-success: #10b981;
+      --br-warning: #f59e0b;
+      --br-info: #0ba5ec;
+      --br-radius: 8px;
+      --br-shadow: 0 18px 40px rgba(45, 43, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--br-primary);
+      background: var(--br-bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(249, 249, 249, 0.96);
+      border-bottom: 1px solid var(--br-border);
+      backdrop-filter: blur(16px);
+    }
+
+    .top-strip {
+      border-bottom: 1px solid var(--br-border);
+      background: var(--br-surface);
+    }
+
+    .top-strip-inner,
+    .header-inner,
+    .footer-inner,
+    .preview-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .top-strip-inner {
+      display: flex;
+      min-height: 36px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--br-primary-soft);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .top-strip-item,
+    .inline-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-strip-item i,
+    .inline-icon i {
+      color: var(--br-accent);
+      font-size: 18px;
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 74px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--br-accent);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .brand-text {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      line-height: 1.1;
+    }
+
+    .brand-area {
+      color: var(--br-primary-soft);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link,
+    .nav-trigger {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: var(--br-radius);
+      background: transparent;
+      color: var(--br-primary-soft);
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-trigger:hover,
+    .nav-item:focus-within .nav-trigger {
+      background: var(--br-surface-2);
+      color: var(--br-primary);
+    }
+
+    .nav-trigger i {
+      font-size: 16px;
+    }
+
+    .mega-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      width: min(920px, calc(100vw - 32px));
+      padding: 18px;
+      border: 1px solid var(--br-border);
+      border-radius: 8px;
+      background: var(--br-surface);
+      box-shadow: var(--br-shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 8px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .nav-item:hover .mega-menu,
+    .nav-item:focus-within .mega-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .mega-panel {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .mega-panel-feature {
+      padding: 16px;
+      border: 1px solid var(--br-border);
+      border-radius: 8px;
+      background: var(--br-bg);
+    }
+
+    .mega-title {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .mega-copy {
+      margin: 0 0 14px;
+      color: var(--br-primary-soft);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .mega-list {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mega-link {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 9px;
+      border-radius: var(--br-radius);
+    }
+
+    .mega-link:hover {
+      background: var(--br-surface-2);
+    }
+
+    .mega-link i {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 8px;
+      background: #f3f0ff;
+      color: var(--br-accent-dark);
+      font-size: 18px;
+    }
+
+    .mega-link strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .mega-link span {
+      display: block;
+      margin-top: 2px;
+      color: var(--br-muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .phone-link {
+      color: var(--br-primary);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-radius: var(--br-radius);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .button i {
+      font-size: 18px;
+    }
+
+    .button-outline {
+      border: 1px solid var(--br-cyan);
+      background: var(--br-surface);
+      color: var(--br-cyan);
+    }
+
+    .button-outline:hover {
+      border-color: var(--br-cyan-hover);
+      background: var(--br-cyan-bg);
+      color: var(--br-cyan-hover);
+    }
+
+    .button-primary {
+      border: 1px solid var(--br-accent);
+      background: var(--br-accent);
+      color: #ffffff;
+    }
+
+    .button-primary:hover {
+      border-color: var(--br-accent-hover);
+      background: var(--br-accent-hover);
+    }
+
+    .icon-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--br-border-strong);
+      border-radius: var(--br-radius);
+      background: var(--br-surface);
+      color: var(--br-primary);
+      cursor: pointer;
+    }
+
+    .icon-button i {
+      font-size: 24px;
+    }
+
+    .drawer-head [data-close-drawer] i {
+      transform: rotate(45deg);
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+    }
+
+    .mobile-drawer.is-open {
+      display: block;
+    }
+
+    .drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(45, 43, 42, 0.34);
+    }
+
+    .drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      width: min(420px, 92vw);
+      height: 100%;
+      flex-direction: column;
+      background: var(--br-bg);
+      box-shadow: var(--br-shadow);
+    }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border-bottom: 1px solid var(--br-border);
+    }
+
+    .drawer-body {
+      overflow-y: auto;
+      padding: 10px 16px 110px;
+    }
+
+    .mobile-accordion {
+      border-bottom: 1px solid var(--br-border);
+    }
+
+    .mobile-accordion-trigger {
+      display: flex;
+      width: 100%;
+      min-height: 54px;
+      align-items: center;
+      justify-content: space-between;
+      border: 0;
+      background: transparent;
+      color: var(--br-primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mobile-accordion-trigger i {
+      color: var(--br-accent);
+      font-size: 20px;
+      transition: transform 160ms ease;
+    }
+
+    .mobile-accordion.is-open .mobile-accordion-trigger i {
+      transform: rotate(180deg);
+    }
+
+    .mobile-accordion-panel {
+      display: none;
+      padding: 0 0 12px;
+    }
+
+    .mobile-accordion.is-open .mobile-accordion-panel {
+      display: grid;
+      gap: 6px;
+    }
+
+    .mobile-link {
+      display: flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: var(--br-radius);
+      color: var(--br-primary-soft);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .mobile-link:hover {
+      background: var(--br-surface-2);
+      color: var(--br-primary);
+    }
+
+    .mobile-link i {
+      color: var(--br-accent);
+      font-size: 20px;
+    }
+
+    .preview-hero {
+      padding: 72px 0 64px;
+      background:
+        linear-gradient(90deg, rgba(249, 249, 249, 0.96), rgba(243, 240, 255, 0.72)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80") center/cover;
+      border-bottom: 1px solid var(--br-border);
+    }
+
+    .preview-inner {
+      display: grid;
+      max-width: 1180px;
+      gap: 20px;
+    }
+
+    .preview-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--br-border);
+      border-radius: 999px;
+      background: var(--br-surface);
+      color: var(--br-primary-soft);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .preview-kicker i {
+      color: var(--br-success);
+      font-size: 18px;
+    }
+
+    .preview-hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .preview-hero p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--br-primary-soft);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .preview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .site-footer {
+      background: #f3f3f3;
+      border-top: 1px solid var(--br-border);
+      color: var(--br-primary);
+    }
+
+    .footer-inner {
+      padding: 48px 0 96px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(280px, 1.35fr) repeat(4, minmax(140px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 16px;
+      max-width: 360px;
+    }
+
+    .footer-brand p {
+      margin: 0;
+      color: var(--br-primary-soft);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-cta-card {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--br-border);
+      border-radius: 8px;
+      background: var(--br-surface);
+    }
+
+    .footer-cta-card strong {
+      font-size: 14px;
+    }
+
+    .footer-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 9px;
+      border: 1px solid var(--br-border);
+      border-radius: 999px;
+      background: var(--br-surface);
+      color: var(--br-primary-soft);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .trust-pill i {
+      color: var(--br-success);
+      font-size: 16px;
+    }
+
+    .footer-column h2 {
+      margin: 0 0 14px;
+      color: var(--br-primary);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-links a,
+    .footer-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--br-primary-soft);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .footer-links a:hover {
+      color: var(--br-primary);
+    }
+
+    .footer-links i {
+      color: var(--br-accent);
+      font-size: 17px;
+    }
+
+    .footer-accordion-trigger {
+      display: none;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--br-border-strong);
+      color: var(--br-primary-soft);
+      font-size: 13px;
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .mobile-bottom-nav {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 70;
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--br-border);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+    }
+
+    .mobile-bottom-nav a {
+      display: grid;
+      min-height: 64px;
+      place-items: center;
+      gap: 3px;
+      padding: 8px 4px 7px;
+      color: var(--br-primary-soft);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .mobile-bottom-nav i {
+      color: var(--br-accent);
+      font-size: 22px;
+    }
+
+    .mobile-bottom-nav a:hover {
+      background: var(--br-surface-2);
+      color: var(--br-primary);
+    }
+
+    @media (max-width: 1060px) {
+      .primary-nav,
+      .phone-link,
+      .header-actions .button-outline {
+        display: none;
+      }
+
+      .icon-button {
+        display: inline-grid;
+      }
+
+      .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+        max-width: 620px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-bottom: 64px;
+      }
+
+      .top-strip {
+        display: none;
+      }
+
+      .top-strip-inner,
+      .header-inner,
+      .footer-inner,
+      .preview-inner {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .header-inner {
+        min-height: 66px;
+        gap: 10px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .brand-area {
+        font-size: 11px;
+      }
+
+      .header-actions .button-primary {
+        min-height: 40px;
+        padding: 0 11px;
+        font-size: 13px;
+      }
+
+      .header-actions .button-primary i {
+        display: none;
+      }
+
+      .preview-hero {
+        padding: 48px 0 44px;
+      }
+
+      .preview-hero p {
+        font-size: 16px;
+      }
+
+      .footer-inner {
+        padding: 34px 0 90px;
+      }
+
+      .footer-top {
+        display: block;
+      }
+
+      .footer-brand {
+        max-width: none;
+        margin-bottom: 20px;
+      }
+
+      .footer-column {
+        border-top: 1px solid var(--br-border-strong);
+      }
+
+      .footer-column h2 {
+        margin: 0;
+      }
+
+      .footer-accordion-trigger {
+        display: flex;
+        width: 100%;
+        min-height: 52px;
+        align-items: center;
+        justify-content: space-between;
+        border: 0;
+        background: transparent;
+        color: var(--br-primary);
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .footer-accordion-trigger i {
+        color: var(--br-accent);
+        font-size: 19px;
+        transition: transform 160ms ease;
+      }
+
+      .footer-column.is-open .footer-accordion-trigger i {
+        transform: rotate(180deg);
+      }
+
+      .footer-column > h2 {
+        display: none;
+      }
+
+      .footer-column .footer-links {
+        display: none;
+        padding: 0 0 14px;
+      }
+
+      .footer-column.is-open .footer-links {
+        display: grid;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 24px;
+      }
+
+      .mobile-bottom-nav {
+        display: grid;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .header-actions .button-primary {
+        padding: 0 9px;
+        font-size: 12px;
+      }
+
+      .mobile-bottom-nav span {
+        font-size: 10px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/beta-global-header.css">
+</head>
+<body>
+  <div data-beta-global-header></div>
+  <div data-beta-global-drawer></div>
+<main>
+    <section class="preview-hero">
+      <div class="preview-inner">
+        <div class="preview-kicker"><i class="iconsax" icon-name="shield-tick"></i> Header, mega menu, footer, and mobile nav preview</div>
+        <h1>Man & Van London navigation for Beta Relocation</h1>
+        <p>Desktop gets fast mega menus. Mobile gets a clean drawer, accordions, and bottom actions for quote, call, pricing, and areas.</p>
+        <div class="preview-actions">
+          <a class="button button-primary" href="https://wa.me/447405793433"><i class="iconsax" icon-name="message-text"></i> WhatsApp quote</a>
+          <a class="button button-outline" href="/pricing/"><i class="iconsax" icon-name="receipt-text"></i> View pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Beta Relocation homepage">
+            <span class="brand-mark">B</span>
+            <span class="brand-text">
+              <span class="brand-name">Beta Relocation</span>
+              <span class="brand-area">London moving made easier</span>
+            </span>
+          </a>
+          <p>Man and van, house removals, office moves, packing, and same-day London moving support with clear pricing and fast booking.</p>
+          <div class="footer-trust">
+            <span class="trust-pill"><i class="iconsax" icon-name="shield-tick"></i> Insured movers</span>
+            <span class="trust-pill"><i class="iconsax" icon-name="clock"></i> Same-day options</span>
+            <span class="trust-pill"><i class="iconsax" icon-name="location"></i> London-wide</span>
+          </div>
+          <div class="footer-cta-card">
+            <strong>Need a quick quote?</strong>
+            <a class="button button-primary" href="https://wa.me/447405793433"><i class="iconsax" icon-name="message-text"></i> Message on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="footer-column is-open">
+          <h2>Services</h2>
+          <button class="footer-accordion-trigger" type="button">Services <i class="iconsax" icon-name="arrow-down"></i></button>
+          <ul class="footer-links">
+            <li><a href="/services/man-and-van/"><i class="iconsax" icon-name="truck-speed"></i> Man & Van London</a></li>
+            <li><a href="/services/house-removals/"><i class="iconsax" icon-name="home-2"></i> House Removals</a></li>
+            <li><a href="/services/office-removals/"><i class="iconsax" icon-name="buildings-2"></i> Office Removals</a></li>
+            <li><a href="/services/same-day-moves/"><i class="iconsax" icon-name="clock"></i> Same Day Moves</a></li>
+            <li><a href="/services/packing/"><i class="iconsax" icon-name="box"></i> Packing Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h2>Areas</h2>
+          <button class="footer-accordion-trigger" type="button">Areas <i class="iconsax" icon-name="arrow-down"></i></button>
+          <ul class="footer-links">
+            <li><a href="/man-and-van-east-london/"><i class="iconsax" icon-name="map-1"></i> East London</a></li>
+            <li><a href="/man-and-van-north-london/"><i class="iconsax" icon-name="map-1"></i> North London</a></li>
+            <li><a href="/man-and-van-south-london/"><i class="iconsax" icon-name="map-1"></i> South London</a></li>
+            <li><a href="/man-and-van-west-london/"><i class="iconsax" icon-name="map-1"></i> West London</a></li>
+            <li><a href="/man-and-van-central-london/"><i class="iconsax" icon-name="map-1"></i> Central London</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h2>Company</h2>
+          <button class="footer-accordion-trigger" type="button">Company <i class="iconsax" icon-name="arrow-down"></i></button>
+          <ul class="footer-links">
+            <li><a href="/about/"><i class="iconsax" icon-name="users"></i> About</a></li>
+            <li><a href="/pricing/"><i class="iconsax" icon-name="receipt-text"></i> Pricing</a></li>
+            <li><a href="/faq/"><i class="iconsax" icon-name="question-message"></i> FAQ</a></li>
+            <li><a href="/app/"><i class="iconsax" icon-name="mobile"></i> App</a></li>
+            <li><a href="/contact/"><i class="iconsax" icon-name="phone"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h2>Contact</h2>
+          <button class="footer-accordion-trigger" type="button">Contact <i class="iconsax" icon-name="arrow-down"></i></button>
+          <ul class="footer-links">
+            <li><a href="tel:+447405793433"><i class="iconsax" icon-name="phone"></i> 07405 793433</a></li>
+            <li><a href="https://wa.me/447405793433"><i class="iconsax" icon-name="message-text"></i> WhatsApp quote</a></li>
+            <li><a href="mailto:hello@betarelocation.co.uk"><i class="iconsax" icon-name="message-dots"></i> hello@betarelocation.co.uk</a></li>
+            <li><span class="footer-contact"><i class="iconsax" icon-name="location"></i> London, United Kingdom</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Â© 2026 Beta Relocation. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/sitemap/">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div data-beta-global-bottom-nav></div>
+<script>
+    const drawer = document.querySelector("[data-drawer]");
+    const openDrawer = document.querySelector("[data-open-drawer]");
+    const closeDrawerButtons = document.querySelectorAll("[data-close-drawer]");
+
+    function setDrawer(open) {
+      if (!drawer) return;
+      drawer.classList.toggle("is-open", open);
+      drawer.setAttribute("aria-hidden", String(!open));
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+
+    if (openDrawer) openDrawer.addEventListener("click", () => setDrawer(true));
+    closeDrawerButtons.forEach((button) => button.addEventListener("click", () => setDrawer(false)));
+
+    document.querySelectorAll(".mobile-accordion-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        trigger.closest(".mobile-accordion").classList.toggle("is-open");
+      });
+    });
+
+    document.querySelectorAll(".footer-accordion-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        trigger.closest(".footer-column").classList.toggle("is-open");
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setDrawer(false);
+      }
+    });
+  </script>
+  <script src="/assets/beta-global-header.js"></script>
+</body>
+</html>
+
+
+
